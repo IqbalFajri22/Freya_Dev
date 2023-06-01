@@ -1,0 +1,115 @@
+@font-face {
+    font-family: "Exoct";
+    src: url("https://assets.codepen.io/1480814/films.EXH_____.ttf");
+}
+
+figure {
+    width: 100%;
+    aspect-ratio: 1;
+    margin: 0 0 30px;
+    padding: 5px 10px 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 100%;
+    cursor: pointer;
+    position: relative;
+    filter: drop-shadow(0 0 10px rgb(0 0 0/50%));
+}
+
+figure:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: top/cover;
+    transform-origin: bottom;
+    filter: brightness(0.9);
+    transition: 0.5s;
+    display: grid;
+}
+
+figure:before {
+    background-image: url(https://pic3.zhimg.com/v2-c534eed4e0ea5d6aa2b36a11a08f2522_r.jpg);
+}
+
+figure + figure:before {
+    background-image: url(https://images.fineartamerica.com/images-medium-large-5/rainbow-colored-ink-paint-in-water-mark-mawson.jpg);
+}
+
+img {
+    grid-area: 1/1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    filter: contrast(0.8) brightness(0.7);
+    place-self: end center;
+    transition: 0.5s;
+}
+
+figcaption {
+    grid-area: 1/1;
+    width: calc(100% + 20px);
+    font-family: Exoct;
+    color: #fff;
+    font-size: min(20px, 4vmin);
+    text-align: center;
+    place-self: end center;
+    transform: perspective(500px) translateY(100%) rotateX(-90deg);
+    backface-visibility: hidden;
+    transform-origin: top;
+    background: #000;
+    transition: 0.5s;
+}
+
+figure:hover img {
+    width: 130%;
+    height: 255%;
+    filter: contrast(1);
+}
+
+figure:hover::before {
+    filter: brightness(0.3);
+    transform: perspective(500px) rotateX(60deg);
+}
+
+figure:hover figcaption {
+    transform: perspective(500px) translateY(100%) rotateX(-30deg);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    grid-auto-flow: row;
+    place-content: end center;
+    gap: 30px;
+    background: linear-gradient(#0000, rgb(50 50 50 / 88%)), url(pasangan2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media (min-width: 600px) {
+    body {
+        grid-auto-flow: column;
+        grid-auto-columns: min(150px, 35vmin);
+    }
+}
+
+h1 {
+    font-size: 25px;
+    text-align: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, rgb(250, 250, 250), rgb(247, 247, 247));
+    -webkit-background-image: -webkit-linear-gradient(left, rgb(255, 247, 247), rgb(255, 255, 255));
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0px rgb(19, 18, 18);
+    text-stroke: 1px rgb(201, 54, 54);
+    display: grid;
+    gap: 20px;
+    place-items: center;
+    text-align: center;
+}
